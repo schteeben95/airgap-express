@@ -1,5 +1,5 @@
 {
-  "name": "data-to-qr",
+  "name": "airgap-express",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
