@@ -1,38 +1,132 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+h4 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, #007bff, #6a11cb); /* Gradient color */
+    -webkit-background-clip: text; /* Text gradient */
+    background-clip: text; /* Text gradient */
+    color: transparent; /* Ensure gradient shows */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+    margin-bottom: 1.5rem;
   }
+  
+
+.page-background {
+    background: linear-gradient(to right, #e0eafc, #cfdef3)
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content-box {
+    min-width: 300px;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.80);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px); /* Glass effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #000;
+}
+
+/* Styling for the button text and icon */
+.glass-button {
+    font-size: 1.2rem; /* Larger text size */
+    font-weight: 700; /* Bolder text */
+    color: #fff; /* Set default color to white for visibility */
+    background: rgba(255, 255, 255, 0.4); /* Slightly transparent background for glass effect */
+    border-radius: 1rem;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    padding: 1rem; /* Increase padding for better spacing */
+    width: 200px; /* Set fixed width */
+    height: 120px; /* Set fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-transform: uppercase; /* Capitalize text for emphasis */
+    letter-spacing: 1px; /* Spacing between letters for a modern look */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    background: rgba(255, 255, 255, 0.4); /* Glass-like background */
+    backdrop-filter: blur(10px); /* Glass effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border: none; /* Remove border */
+    overflow: hidden; /* Ensure the text and icon stay inside the button */
+    cursor: pointer; /* Pointer cursor for better user interaction */
+  }
+  
+  /* Icon styling */
+  .glass-button .icon {
+    font-size: 2rem; /* Larger icon size */
+    color: #6a11cb; /* Make the icon color purple */
+    background: none; /* No background for the icon */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  /* Hover effect for the button */
+  .glass-button:hover {
+    background: rgba(255, 255, 255, 0.6); /* Darker glass effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
+    transform: scale(1.05); /* Slightly scale up the button */
+  }
+  
+  /* Hover effect for the icon */
+  .glass-button:hover .icon {
+    transform: scale(1.2); /* Increase icon size on hover */
+    color: #007bff; /* Change icon color on hover (blue) */
+  }
+  
+  /* Styling for the text inside the button */
+  .glass-button span {
+    font-size: 1.1rem; /* Slightly larger text */
+    font-weight: 600;
+    color: #6a11cb; /* Set the text color to purple */
+    transition: color 0.3s ease; /* Smooth color change */
+  }
+  
+  /* Hover effect for the button text */
+  .glass-button:hover span {
+    color: #007bff; /* Change text color on hover (blue) */
+  }
+  
+  /* Button container for spacing */
+  .button-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+  }
+  /* Styling for the back button */
+.back-button {
+  background: rgba(255, 255, 255, 0); /* Glass-like background */
+  border: none; /* Remove default border */
+  color: #6a11cb; /* Set text color to purple */
+  font-size: 1.5rem; /* Font size for the icon */
+  font-weight: 700; /* Make the font bold */
+  border-radius: 1rem; /* Rounded corners */
+  padding: 0.5rem 1rem; /* Adjust padding */
+  position: absolute; /* Positioning relative to content-box */
+  top: calc(1rem); /* Move 5px down */
+  left: calc(1rem); /* Move 5px right */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  transition: background 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  cursor: pointer; /* Pointer cursor for interaction */
+  margin-top: 5px;
+  margin-left: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.back-button:hover {
+  /* background: rgba(255, 255, 255, 0); Slightly darker background on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Icon styling */
+.back-button .icon {
+  color: #6a11cb; /* Purple icon color */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+/* Hover effect for the icon */
+.back-button:hover .icon {
+  color: #007bff; /* Change icon color on hover to blue */
 }
