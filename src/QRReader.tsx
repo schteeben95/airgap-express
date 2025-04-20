@@ -43,6 +43,7 @@ const QRReader = () => {
     setFinishedScanning(false);
     setReadCurrentIndex(0);
     setReadTotalBlocks(0);
+    sessionStorage.clear();
   }, []);
 
   useEffect(() => {
@@ -94,15 +95,17 @@ const QRReader = () => {
       />
       {!finishedScanning && (
         <Container
-          fluid
-          className="d-flex justify-content-center align-items-center"
+          className="d-flex justify-content-center align-items-start"
+          style={{
+            maxHeight: "40vh",
+            overflowY: "auto",
+            padding: "1rem",
+            marginTop: "1rem",
+            // backgroundColor: "rgba(255, 255, 255, 0.6)", // Optional, for clarity
+            borderRadius: "1rem",
+          }}
         >
-          <div
-            className="d-flex justify-content-center"
-            style={{
-              flexWrap: "wrap",
-            }}
-          >
+          <div className="w-100 d-flex flex-wrap justify-content-center">
             {Array.from({ length: readTotalBlocks }).map((_, i) => (
               <div
                 key={i}
