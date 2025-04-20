@@ -26,7 +26,7 @@ const QrCodeScanner = ({ onScanSuccess }: QrcodeScannerProps) => {
         };
 
         // Initialize the scanner
-        const scanner = new Html5QrcodeScanner("qr-reader", config, false);
+        const scanner = new Html5QrcodeScanner("qr-reader", config, true);
         scannerRef.current = scanner;
 
         const handleScanSuccess = (
@@ -34,7 +34,6 @@ const QrCodeScanner = ({ onScanSuccess }: QrcodeScannerProps) => {
             result: Html5QrcodeResult
         ) => {
             onScanSuccess(decodedText);
-            // console.log(`${decodedText.split(" =!= ")[1]} out of ${decodedText.split(" =!= ")[2]}`)
         };
 
         const onScanFailure = (error: string) => { };
