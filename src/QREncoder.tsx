@@ -81,13 +81,15 @@ const QREncoder = () => {
             />
             {encodedRep && (
                 <div>
-                    <QRCode
-                        className="mb-2"
-                        level={ERROR_CORRECTION_LEVEL}
-                        style={{ width: "100%" }}
-                        size={512}
-                        value={currentBlock}
-                    />
+                    <div style={{ width: "100%" }}>
+                        <QRCode
+                            className="mb-2"
+                            level={ERROR_CORRECTION_LEVEL}
+                            style={{ width: "100%", height: "auto" }}
+                            // size={512}
+                            value={currentBlock}
+                        />
+                    </div>
                     <p
                         style={{
                             textAlign: "center",
