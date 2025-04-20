@@ -90,51 +90,53 @@ const QRReader = () => {
 
   return (
     <>
-      <QrCodeScanner
-        onScanSuccess={(result: string) => setCurrentScan(result)}
-      />
       {!finishedScanning && (
-        <Container
-          className="d-flex justify-content-center align-items-start"
-          style={{
-            maxHeight: "40vh",
-            overflowY: "auto",
-            padding: "1rem",
-            marginTop: "1rem",
-            // backgroundColor: "rgba(255, 255, 255, 0.6)", // Optional, for clarity
-            borderRadius: "1rem",
-          }}
-        >
-          <div className="w-100 d-flex flex-wrap justify-content-center">
-            {Array.from({ length: readTotalBlocks }).map((_, i) => (
-              <div
-                key={i}
-                style={{
-                  display: "inline-block",
-                  padding: "1px", // Border thickness
-                  borderRadius: "4px", // Optional: rounded corners
-                  background:
-                    i + 1 === readCurrentIndex
-                      ? "linear-gradient(45deg, #007bff, #6a11cb)"
-                      : "none",
-                  margin: "1px",
-                }}
-              >
+        <>
+          <QrCodeScanner
+            onScanSuccess={(result: string) => setCurrentScan(result)}
+          />
+          <Container
+            className="d-flex justify-content-center align-items-start"
+            style={{
+              maxHeight: "40vh",
+              overflowY: "auto",
+              padding: "1rem",
+              marginTop: "1rem",
+              // backgroundColor: "rgba(255, 255, 255, 0.6)", // Optional, for clarity
+              borderRadius: "1rem",
+            }}
+          >
+            <div className="w-100 d-flex flex-wrap justify-content-center">
+              {Array.from({ length: readTotalBlocks }).map((_, i) => (
                 <div
+                  key={i}
                   style={{
-                    width: "15px",
-                    height: "15px",
-                    backgroundColor:
-                      `${SESSION_STORAGE_KEY}-${i + 1}` in sessionStorage
-                        ? "#007bff"
-                        : "#007b00",
-                    borderRadius: "2px", // Optional: match outer radius
+                    display: "inline-block",
+                    padding: "1px", // Border thickness
+                    borderRadius: "4px", // Optional: rounded corners
+                    background:
+                      i + 1 === readCurrentIndex
+                        ? "linear-gradient(45deg, #007bff, #6a11cb)"
+                        : "none",
+                    margin: "1px",
                   }}
-                />
-              </div>
-            ))}
-          </div>
-        </Container>
+                >
+                  <div
+                    style={{
+                      width: "15px",
+                      height: "15px",
+                      backgroundColor:
+                        `${SESSION_STORAGE_KEY}-${i + 1}` in sessionStorage
+                          ? "#007bff"
+                          : "#007b00",
+                      borderRadius: "2px", // Optional: match outer radius
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </Container>
+        </>
       )}
       {finishedScanning && (
         <div className="d-flex justify-content-center mt-4">
