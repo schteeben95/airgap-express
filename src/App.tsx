@@ -1,18 +1,21 @@
 import {
   faArrowLeft,
   faDownload,
+  faInfoCircle,
   faUpload,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import "./App.css";
 
 import QREncoder from "./QREncoder";
 import QRReader from "./QRReader";
 
 function App() {
+  const [showDisclaimer, setShowDisclaimer] = useState<boolean>(true);
+
   const [shadow, setShadow] = useState(
     "0px 8px 32px 0 rgba(31, 38, 135, 0.37)"
   );
@@ -49,6 +52,33 @@ function App() {
         className="content-box p-4"
         style={{ boxShadow: shadow, position: "relative" }}
       >
+        <Button
+          className="position-absolute top-0 end-0 m-3 btn-light rounded-circle d-flex align-items-center justify-content-center shadow"
+          style={{ width: "32px", height: "32px", padding: 0 }}
+          onClick={() => setShowDisclaimer(true)}
+          aria-label="Show disclaimer"
+        >
+          <FontAwesomeIcon icon={faInfoCircle} />
+        </Button>
+        <Modal
+          show={showDisclaimer}
+          onHide={() => setShowDisclaimer(false)}
+          // centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Disclaimer</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>
+              This application runs entirely client-side. This means no data is
+              uploaded back to where the application is hosted.
+            </p>
+            <p>
+              Having said that, the site owner does not take responsibility for
+              anything illegal or stupid that you do with this application.
+            </p>
+          </Modal.Body>
+        </Modal>
         {action !== "Neither" && (
           <Button
             className="back-button position-absolute top-0 start-0 p-2"
