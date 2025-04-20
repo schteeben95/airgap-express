@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import "./App.css";
 
 import QREncoder from "./QREncoder";
@@ -48,6 +49,7 @@ function App() {
 
   return (
     <div className="page-background d-flex justify-content-center align-items-center vh-100">
+      <SpeedInsights />
       <div
         className="content-box p-4"
         style={{ boxShadow: shadow, position: "relative" }}
